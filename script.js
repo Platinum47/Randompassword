@@ -16,6 +16,7 @@ var typeSpec;
 // switch to promt 2
 function switchPrompt2() 
 {
+	
   PromptGenerate.style.visibility="hidden";
   PromptNumChar.style.visibility="visible";
 }
@@ -23,6 +24,7 @@ function switchPrompt2()
 // switch to promt 3
 function switchPrompt3() 
 {
+	
   string_length = document.getElementById("NumChar").value;
   alert(string_length);
   PromptNumChar.style.visibility="hidden";
@@ -32,6 +34,7 @@ function switchPrompt3()
 // Write password to the #password input
 function writePassword() 
 {
+
   typeLower = document.getElementById("TypeLower");
   typeUpper = document.getElementById("TypeUpper");
   typeNum = document.getElementById("TypeNum");
@@ -47,23 +50,24 @@ function writePassword()
 // Generate a random password
 function generatePassword()
 {
+	debugger;
 	var types = '';
 
-	if (typeLower = "checked") 
+	if (typeLower.checked) 
 	{
 		types = types + "L";
 	}
 	
-	if (typeLower = "checked") 
+	if (typeUpper.checked) 
 	{
 		types = types + "U";
 	}
-    if (typeLower = "checked") 
+    if (typeNum.checked) 
 	{
 		types = types + "N";
 	}
     
-	if (typeLower = "checked") 
+	if (typeSpec.checked) 
 	{
 		types = types + "S";
 	}
@@ -82,19 +86,24 @@ function generatePassword()
 	var randomstring = '';
 	                        
 	for (var i=0; i<string_length; i++) {
-    
-	   var randomtype = types.substring(Math.floor(Math.random() * types.length),1);
+		var index = Math.floor(Math.random() * types.length)
+		debugger
+	   var randomtype = types.substring(index,index+1);
 
        switch(randomtype) 
 		{
 			case "L":
 				var chars = Lower;
+				break
 			case "U":
 				var chars = Upper;
+				break
 			case "N":
 				var chars = Nums;
+				break
             case "S":
 				var chars = Specs;
+				break
        }
       
         var rnum = Math.floor(Math.random() * chars.length);
